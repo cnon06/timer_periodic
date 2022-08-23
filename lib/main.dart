@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("Message: $counter"),
+            Text("Counter: $counter", style: const TextStyle(fontSize: 20),),
             ElevatedButton(
                 onPressed: () {
                   setState(() {});
@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                  
                 },
-                child: const Text("Press"))
+                child: const Text("Start"))
           ],
         ),
       ),

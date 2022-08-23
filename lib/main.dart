@@ -31,13 +31,30 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int counter = 0;
+  bool checkElevatedButton = false;
+  late Timer myTimer2;
 
-String msg = "";
+  @override
+  void initState() {
+    myTimer2 = Timer(Duration(microseconds: 1), () {});
+    // TODO: implement initState
+    super.initState();
+  }
+
+  void myTimer() {
+    myTimer2 = Timer.periodic(const Duration(seconds: 1), (timer) {
+      //if (timer.isActive) timer.cancel();
+      //if (timer.tick > 5) timer.cancel();
+
+      print(timer.tick);
+      counter = timer.tick;
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -46,17 +63,16 @@ String msg = "";
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("Message: $msg"),
+            Text("Message: $counter"),
             ElevatedButton(
                 onPressed: () {
-                 setState(() {});
-                  msg = "";
-                  Timer(const Duration(seconds: 3), () {
-                    msg = "Timer period has been completed.";
-                    setState(() {});
+                  setState(() {});
+                  if (myTimer2.isActive) myTimer2.cancel();
+                  // checkElevatedButton = true;
+                  counter = 0;
+                  myTimer();
 
-                     print("Timer period has been completed.");
-                  });
+                 
                 },
                 child: const Text("Press"))
           ],

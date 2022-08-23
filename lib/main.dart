@@ -38,14 +38,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     myTimer2 = Timer(Duration(microseconds: 1), () {});
-    // TODO: implement initState
+   
     super.initState();
   }
 
   void myTimer() {
     myTimer2 = Timer.periodic(const Duration(seconds: 1), (timer) {
-      //if (timer.isActive) timer.cancel();
-      //if (timer.tick > 5) timer.cancel();
+      
 
       print(timer.tick);
       counter = timer.tick;
@@ -68,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   setState(() {});
                   if (myTimer2.isActive) myTimer2.cancel();
-                  // checkElevatedButton = true;
+                  
                   counter = 0;
                   myTimer();
 

@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    myTimer2 = Timer(Duration(microseconds: 1), () {});
+    myTimer2 = Timer(const Duration(microseconds: 1), () {});
    
     super.initState();
   }
